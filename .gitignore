@@ -1,3 +1,4 @@
+# CMake generated files
 CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles
@@ -9,3 +10,35 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+
+# Build output directories
+build/
+out/
+bin/
+obj/
+
+# Visual Studio specific
+.vs/
+*.vcxproj.user
+*.vcxproj.filters
+*.pdb
+*.idb
+*.suo
+*.opendb
+*.VC.db
+*.VC.VC.opendb
+*.log
+
+# Backup files
+*.bak
+*.tmp
+~$*
+
+# IDE specific
+.idea/
+.vscode/
+*.code-workspace
+
+# System files
+.DS_Store
+Thumbs.db
