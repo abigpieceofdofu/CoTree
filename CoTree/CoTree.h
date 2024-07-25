@@ -11,6 +11,9 @@ public:
     CoTree(QWidget *parent = nullptr);
     ~CoTree();
 
+public slots:
+    void HandleStartButtonClicked();
+
 private:
     Ui::CoTreeClass ui;
 };
