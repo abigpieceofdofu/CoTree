@@ -21,6 +21,9 @@ set(PROJECT_SOURCES
     CoTree.h
     CoTree.cpp
     CoTree.rc
+
+    RandomNumberTool/RandomNumberTool.h
+    RandomNumberTool/RandomNumberTool.cpp
 )
 
 qt_add_executable(CoTree ${PROJECT_SOURCES})
