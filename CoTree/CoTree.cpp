@@ -2,6 +2,7 @@
 #include <QPushButton>
 #include <QMessageBox>
 #include ".\RandomNumberTool\RandomNumberTool.h"
+#include ".\FileIOTool\FileIOTool.h"
 
 CoTree::CoTree(QWidget *parent)
     : QMainWindow(parent)
@@ -18,6 +19,8 @@ void CoTree::HandleStartButtonClicked()
 {
     RandomNumberTool randomNumberTool;
     string uuid = randomNumberTool.generateRandomBytes(4);
+
+    FileIOTool fileIOTool;
 
     QMessageBox::information(this, "Generated UUID", QString::fromStdString(uuid));
 }
