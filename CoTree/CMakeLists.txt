@@ -15,6 +15,10 @@ find_package(Qt${QT_VERSION_MAJOR}
 )
 qt_standard_project_setup()
 
+include_directories(${PROJECT_SOURCE_DIR}/RandomNumberTool)
+include_directories(${PROJECT_SOURCE_DIR}/FileIOTool)
+include_directories(${PROJECT_SOURCE_DIR}/DebugMachine)
+
 set(PROJECT_SOURCES
     main.cpp
     CoTree.ui
@@ -27,6 +31,9 @@ set(PROJECT_SOURCES
 
     FileIOTool/FileIOTool.h
     FileIOTool/FileIOTool.cpp
+
+    DebugMachine/DebugMachine.h
+    DebugMachine/DebugMachine.cpp
 )
 
 qt_add_executable(CoTree ${PROJECT_SOURCES})

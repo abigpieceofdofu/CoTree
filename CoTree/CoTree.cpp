@@ -1,8 +1,10 @@
 #include "CoTree.h"
 #include <QPushButton>
 #include <QMessageBox>
-#include ".\RandomNumberTool\RandomNumberTool.h"
-#include ".\FileIOTool\FileIOTool.h"
+#include <QTextBrowser>
+#include "RandomNumberTool.h"
+#include "FileIOTool.h"
+#include "DebugMachine.h"
 
 CoTree::CoTree(QWidget *parent)
     : QMainWindow(parent)
@@ -17,10 +19,6 @@ CoTree::~CoTree()
 
 void CoTree::HandleStartButtonClicked()
 {
-    RandomNumberTool randomNumberTool;
-    string uuid = randomNumberTool.generateRandomBytes(4);
-
-    FileIOTool fileIOTool;
-
-    QMessageBox::information(this, "Generated UUID", QString::fromStdString(uuid));
+    DebugMachine debuger(this);
+    debuger.LogMessageBox("test log");
 }

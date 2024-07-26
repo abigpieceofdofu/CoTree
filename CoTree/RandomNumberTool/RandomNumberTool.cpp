@@ -18,7 +18,8 @@ int RandomNumberTool::generateRandomIntNumber(int min, int max)
     return dis(gen);
 }
 
-double RandomNumberTool::generateRandomDoubleNumber(double min, double max) {
+double RandomNumberTool::generateRandomDoubleNumber(double min, double max)
+{
     random_device rd;
     mt19937 gen(rd());
     uniform_real_distribution<> dis(min, max);
@@ -26,12 +27,14 @@ double RandomNumberTool::generateRandomDoubleNumber(double min, double max) {
 }
 
 string RandomNumberTool::generateRandomString(int length, const vector<CharsetType>& charsetTypes) {
-    if (length <= 0 || charsetTypes.empty()) {
+    if (length <= 0 || charsetTypes.empty())
+    {
         throw invalid_argument("Invalid length or charsetTypes.");
     }
 
     string combinedCharset;
-    for (const auto& type : charsetTypes) {
+    for (const auto& type : charsetTypes)
+    {
         combinedCharset += getCharset(type);
     }
 
@@ -42,7 +45,8 @@ string RandomNumberTool::generateRandomString(int length, const vector<CharsetTy
     string randomString;
     randomString.reserve(length);
 
-    for (int i = 0; i < length; ++i) {
+    for (int i = 0; i < length; ++i)
+    {
         char randomChar = combinedCharset[dis(gen)];
         randomString += randomChar;
     }
@@ -50,7 +54,8 @@ string RandomNumberTool::generateRandomString(int length, const vector<CharsetTy
     return randomString;
 }
 
-string RandomNumberTool::generateRandomBytes(int length) {
+string RandomNumberTool::generateRandomBytes(int length)
+{
     static const char hexChars[] = "0123456789abcdef";
     std::string bytes;
     bytes.reserve(length);
@@ -59,7 +64,8 @@ string RandomNumberTool::generateRandomBytes(int length) {
     std::mt19937 gen(rd());
     std::uniform_int_distribution<> dis(0, 255);
 
-    for (int i = 0; i < length; ++i) {
+    for (int i = 0; i < length; ++i)
+    {
         unsigned char byte = dis(gen);
         bytes += hexChars[byte >> 4];
         bytes += hexChars[byte & 0x0F];
@@ -82,12 +88,16 @@ string RandomNumberTool::generateUUID()
     uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
     uuid[14] = '4';
 
-    for (int i = 0; i < 36; i++) {
-        if (uuid[i] == ' ') {
-            if (i == 19) {
+    for (int i = 0; i < 36; i++)
+    {
+        if (uuid[i] == ' ')
+        {
+            if (i == 19)
+            {
                 uuid[i] = v[dis_for_12(gen)];
             }
-            else {
+            else
+            {
                 uuid[i] = v[dis(gen)];
             }
         }
@@ -105,15 +115,17 @@ string RandomNumberTool::generatePassword(int length)
 
 
 // private
-string RandomNumberTool::getCharset(CharsetType charsetType) {
-    switch (charsetType) {
-    case CharsetType::Digits:
-        return "0123456789";
-    case CharsetType::Letters:
-        return "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    case CharsetType::SpecialChars:
-        return "!@#$%^&*()-_=+[]{}|;:',.<>?/`~";
-    default:
-        throw invalid_argument("Unknown charset type.");
+string RandomNumberTool::getCharset(CharsetType charsetType)
+{
+    switch (charsetType)
+    {
+        case CharsetType::Digits:
+            return "0123456789";
+        case CharsetType::Letters:
+            return "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        case CharsetType::SpecialChars:
+            return "!@#$%^&*()-_=+[]{}|;:',.<>?/`~";
+        default:
+            throw invalid_argument("Unknown charset type.");
     }
 }
