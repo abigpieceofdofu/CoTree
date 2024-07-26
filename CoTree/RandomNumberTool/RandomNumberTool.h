@@ -9,7 +9,8 @@ public:
     RandomNumberTool();
     ~RandomNumberTool();
 
-    static enum class CharsetType {
+    static enum class CharsetType
+    {
         Digits,
         Letters,
         SpecialChars
