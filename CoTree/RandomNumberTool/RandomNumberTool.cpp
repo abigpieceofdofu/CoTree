@@ -99,7 +99,8 @@ string RandomNumberTool::generateUUID()
 string RandomNumberTool::generatePassword(int length)
 {
     vector<CharsetType> charsetTypes = { CharsetType::Digits, CharsetType::Letters, CharsetType::SpecialChars };
-    generateRandomString(length, charsetTypes);
+    string password = generateRandomString(length, charsetTypes);
+    return password;
 }
 
 
